@@ -7,3 +7,11 @@
   background-color: aqua;
   color: black;
 }
+ul {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+li {
+  text-decoration: none;
+}

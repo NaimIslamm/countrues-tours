@@ -2,8 +2,12 @@ import { useEffect, useState } from "react";
 import Country from "../Country/Country";
 import "./Countries.css";
 const Countries = () => {
+  // this is for countries length--
   const [countries, setCountries] = useState([]);
+
+  // for visited countries-----
   const [visitedCountries, setvisitedCountries] = useState([]);
+  // event handler function---------
 
   const handleVisitedCountry = (country) => {
     console.log(country);
@@ -11,6 +15,15 @@ const Countries = () => {
     setvisitedCountries(newVisitedCountries);
   };
 
+  // for flags-----------
+  const [visitedFlags, setVisitedFlags] = useState([]);
+  // event handler function---------
+
+  const handleVisitedFlag = (flag) => {
+    const newVisitedFlags = [...visitedFlags, flag];
+    setVisitedFlags(newVisitedFlags);
+  };
+  // for data loading from API--
   useEffect(() => {
     fetch("https://restcountries.com/v3.1/all")
       .then((res) => res.json())
@@ -20,6 +33,7 @@ const Countries = () => {
   return (
     <div>
       <h3>Countries:{countries.length}</h3>
+      {/* visited countries */}
       <div>
         <h2>Visited Country:{visitedCountries.length}</h2>
         <ul>
@@ -28,12 +42,19 @@ const Countries = () => {
           ))}
         </ul>
       </div>
-
+      {/* for visited flags */}
+      <div>
+        {visitedFlags.map((flag, index) => (
+          <img key={index} src="{flag}"></img>
+        ))}
+      </div>
+      {/* display countries */}
       <div className="countries-container">
         {countries.map((country) => (
           <Country
             key={country.cca3}
             handleVisitedCountry={handleVisitedCountry}
+            handleVisitedFlag={handleVisitedFlag}
             country={country}
           ></Country>
         ))}

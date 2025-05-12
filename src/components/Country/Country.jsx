@@ -1,4 +1,4 @@
-const Country = ({ country, handleVisitedCountry }) => {
+const Country = ({ country, handleVisitedCountry, handleVisitedFlag }) => {
   const { name, flags, population, cca3 } = country;
   const [visitingCountry, setVisitingCountry] = useState(false);
   const handleVisited = () => {
@@ -11,13 +11,18 @@ const Country = ({ country, handleVisitedCountry }) => {
       <img src={flags.png} alt="flag-image" />
       <p>Population:{population}</p>
       <p>Code:{cca3}</p>
-      <button onClick={handleVisited}>
-        {visitingCountry ? "Visited" : "visit"}
-      </button>
-      {visitingCountry ? "visited" : ""}
-      <button onClick={() => handleVisitedCountry(country)}>
-        Add Visited Country
-      </button>
+      <div className="button-container">
+        <button onClick={handleVisited}>
+          {visitingCountry ? "Visited" : "visit"}
+        </button>
+        {visitingCountry ? "visited" : ""}
+        <button onClick={() => handleVisitedCountry(country)}>
+          Add Visited Country
+        </button>
+        <button onClick={() => handleVisitedFlag(country.flags.png)}>
+          Add Visited Flag
+        </button>
+      </div>
     </div>
   );
 };
