@@ -7,23 +7,23 @@ const Countries = () => {
 
   // for visited countries-----
   const [visitedCountries, setvisitedCountries] = useState([]);
-  // event handler function---------
-
+  //visited countries event handler function--------------------------
   const handleVisitedCountry = (country) => {
     console.log(country);
     const newVisitedCountries = [...visitedCountries, country];
     setvisitedCountries(newVisitedCountries);
   };
 
-  // for flags-----------
+  // for flags--------------------------------------------------------
   const [visitedFlags, setVisitedFlags] = useState([]);
-  // event handler function---------
+  // useState er empty array niye rakhci cause click kor, e add korbo seta emepty ...visitedFlags, flag diye add korbo--r alada ekta container khule seta add korbo---------
 
+  //flags event handler function----------------------------------------
   const handleVisitedFlag = (flag) => {
     const newVisitedFlags = [...visitedFlags, flag];
     setVisitedFlags(newVisitedFlags);
   };
-  // for data loading from API--
+  // for data loading from API-----------------------------------------
   useEffect(() => {
     fetch("https://restcountries.com/v3.1/all")
       .then((res) => res.json())
@@ -32,6 +32,7 @@ const Countries = () => {
 
   return (
     <div>
+      {/* total countries */}
       <h3>Countries:{countries.length}</h3>
       {/* visited countries */}
       <div>
