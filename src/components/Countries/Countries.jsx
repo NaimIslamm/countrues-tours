@@ -2,10 +2,10 @@ import { useEffect, useState } from "react";
 import Country from "../Country/Country";
 import "./Countries.css";
 const Countries = () => {
-  // this is for countries length--
+  // this is for all countries length----------------
   const [countries, setCountries] = useState([]);
 
-  // for visited countries-----
+  // for visited countries-------------------------
   const [visitedCountries, setvisitedCountries] = useState([]);
   //visited countries event handler function--------------------------
   const handleVisitedCountry = (country) => {
@@ -33,7 +33,7 @@ const Countries = () => {
   return (
     <div>
       {/* total countries */}
-      <h3>Countries:{countries.length}</h3>
+      <h2>Countries:{countries.length}</h2>
       {/* visited countries */}
       <div>
         <h2>Visited Country:{visitedCountries.length}</h2>

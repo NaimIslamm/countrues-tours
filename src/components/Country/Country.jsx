@@ -1,5 +1,5 @@
 const Country = ({ country, handleVisitedCountry, handleVisitedFlag }) => {
-  // country te object ta pathalam r shb gula destruction korlam then eigula details display te show korlam like, country name, flag, etc..
+  // country te data(object) ta pathalam r shb gula destruction korlam then eigula details display te show korlam like, country name, flag, etc..
   const { name, flags, population, cca3 } = country;
   // 1st visit button useState & event handler----------
   const [visitingCountry, setVisitingCountry] = useState(false);
